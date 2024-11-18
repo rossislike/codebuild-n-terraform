@@ -13,9 +13,7 @@ phases:
       - ./configure-named-profile.sh
   build:
     commands:
-      - echo "we are in the build phase"
-      - echo "we can run tests here"
-      - grep -Fq "rumo" main.tf
+      - ./apply-terraform.sh
   post_build:
     commands:
       - echo "we are in the post build phase"
