@@ -5,6 +5,21 @@ terraform {
       version = "5.76.0"
     }
   }
+
+#   backend "s3" {
+#     bucket = "rumo-terraform-on-aws-eks"
+#     key    = "dev/eks-cluster/terraform.tfstate"
+#     region = "us-east-1" 
+ 
+#     # For State Locking
+#     dynamodb_table = "dev-ekscluster"    
+#   }  
+
+  backend "s3" {
+    bucket  = "rumo-state-bucket"
+    key     = "build/terraform.tfstate"
+    region  = "us-east-1"
+  }
 }
 
 provider "aws" {
